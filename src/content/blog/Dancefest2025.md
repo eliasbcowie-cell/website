@@ -7,8 +7,7 @@ heroImage: "/DF25_Trybe.png"
 
 Student-driven dance show featuring 29 pieces and 5 student dance groups.
 
----
-import { YouTube } from 'astro-embed';
----
 
-<YouTube id="https://youtu.be/lSXgieBMgM8" />
+<link rel="stylesheet" href="src/lite-yt-embed.css" />
+<script src="src/lite-yt-embed.js"></script>
+<lite-youtube videoid="lSXgieBMgM8" </lite-youtube>
