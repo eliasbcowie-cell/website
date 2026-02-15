@@ -45,9 +45,26 @@ Student-driven dance show featuring 29 pieces and 5 student dance groups.
 
   <div class="video-wrapper">
     <iframe 
-      src="https://www.youtube.com/embed/oktjYAuDR0U?si=SJxgxKid1nvNM5VH"
-      title="Video 2"
+      src="https://www.youtube.com/embed/oktjYAuDR0U?si=eRm2fDVpdv0GcOGf"
+      title="Flamenco"
+      allowfullscreen>
+    </iframe>
+  </div> 
+  
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/yNOUVHYGqLA?si=tkCGr4uCdVYqAF8U"
+      title="Imitadora"
       allowfullscreen>
     </iframe>
   </div>
+
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/wvZboCIzZFs?si=H9P2evjqHMPvYif2"
+      title="Pompeii"
+      allowfullscreen>
+    </iframe>
+  </div>
+  
 </div>
