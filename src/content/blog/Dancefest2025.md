@@ -10,7 +10,7 @@ Student-driven dance show featuring 29 pieces and 5 student dance groups.
 <style>
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1rem;
 }
 
