@@ -1,24 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <g fill="#1a1a1a">
-    <!-- 5 rounded petals, each rotated 72° around center -->
-    <path d="M50,46 C38,42 31,20 42,8 C45,4 55,4 58,8 C69,20 62,42 50,46Z"/>
-    <path d="M50,46 C38,42 31,20 42,8 C45,4 55,4 58,8 C69,20 62,42 50,46Z" transform="rotate(72,50,50)"/>
-    <path d="M50,46 C38,42 31,20 42,8 C45,4 55,4 58,8 C69,20 62,42 50,46Z" transform="rotate(144,50,50)"/>
-    <path d="M50,46 C38,42 31,20 42,8 C45,4 55,4 58,8 C69,20 62,42 50,46Z" transform="rotate(216,50,50)"/>
-    <path d="M50,46 C38,42 31,20 42,8 C45,4 55,4 58,8 C69,20 62,42 50,46Z" transform="rotate(288,50,50)"/>
-    <!-- Center -->
-    <circle cx="50" cy="50" r="11"/>
-    <!-- Small stamen dots in white -->
-    <circle cx="50" cy="42" r="1.8" fill="white"/>
-    <circle cx="55" cy="45" r="1.8" fill="white"/>
-    <circle cx="54" cy="51" r="1.8" fill="white"/>
-    <circle cx="46" cy="51" r="1.8" fill="white"/>
-    <circle cx="45" cy="45" r="1.8" fill="white"/>
-  </g>
   <style>
-    g { fill: #1a1a1a; }
+    .fg { fill: #1a1a1a; }
+    .stem { fill: none; stroke: #1a1a1a; stroke-width: 5; stroke-linecap: round; }
     @media (prefers-color-scheme: dark) {
-      g { fill: #fff; }
+      .fg { fill: #fff; }
+      .stem { stroke: #fff; }
     }
   </style>
+
+  <!-- Short stem -->
+  <path class="stem" d="M 50,62 C 51,75 53,86 55,96"/>
+
+  <!-- Flower face-on, centered at (50,46) -->
+  <!-- Petals are very broad and rounded, matching the photo -->
+  <g transform="translate(50,46)">
+    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z"/>
+    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(72)"/>
+    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(144)"/>
+    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(216)"/>
+    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(288)"/>
+    <!-- Center disc -->
+    <circle class="fg" r="12"/>
+    <!-- Ring of stamen dots matching the photo -->
+    <circle fill="white" cy="-6.5" r="2.2"/>
+    <circle fill="white" cx="6.2" cy="-2" r="2.2"/>
+    <circle fill="white" cx="3.8" cy="5.3" r="2.2"/>
+    <circle fill="white" cx="-3.8" cy="5.3" r="2.2"/>
+    <circle fill="white" cx="-6.2" cy="-2" r="2.2"/>
+  </g>
 </svg>
