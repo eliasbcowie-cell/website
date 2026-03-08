@@ -1,31 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <style>
-    .fg { fill: #1a1a1a; }
-    .stem { fill: none; stroke: #1a1a1a; stroke-width: 5; stroke-linecap: round; }
+    .petal { fill: #1a1a1a; }
+    .center { fill: #fff; }
     @media (prefers-color-scheme: dark) {
-      .fg { fill: #fff; }
-      .stem { stroke: #fff; }
+      .petal { fill: #fff; }
+      .center { fill: #1a1a1a; }
     }
   </style>
-
-  <!-- Short stem -->
-  <path class="stem" d="M 50,62 C 51,75 53,86 55,96"/>
-
-  <!-- Flower face-on, centered at (50,46) -->
-  <!-- Petals are very broad and rounded, matching the photo -->
-  <g transform="translate(50,46)">
-    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z"/>
-    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(72)"/>
-    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(144)"/>
-    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(216)"/>
-    <path class="fg" d="M0,-4 C-18,-5 -23,-19 -14,-27 C-9,-31 9,-31 14,-27 C23,-19 18,-5 0,-4Z" transform="rotate(288)"/>
-    <!-- Center disc -->
-    <circle class="fg" r="12"/>
-    <!-- Ring of stamen dots matching the photo -->
-    <circle fill="white" cy="-6.5" r="2.2"/>
-    <circle fill="white" cx="6.2" cy="-2" r="2.2"/>
-    <circle fill="white" cx="3.8" cy="5.3" r="2.2"/>
-    <circle fill="white" cx="-3.8" cy="5.3" r="2.2"/>
-    <circle fill="white" cx="-6.2" cy="-2" r="2.2"/>
+  <!-- Each petal starts 8 units from center so petals are clearly separate -->
+  <g transform="translate(50,50)">
+    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(0)"/>
+    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(72)"/>
+    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(144)"/>
+    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(216)"/>
+    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(288)"/>
+    <!-- Center dot covers the petal bases and provides contrast -->
+    <circle class="center" r="10"/>
   </g>
 </svg>
