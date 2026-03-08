@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <style>
-    .petal { fill: #1a1a1a; }
-    .center { fill: #fff; }
+    .p { fill: #1a1a1a; }
+    .c { fill: #fff; }
     @media (prefers-color-scheme: dark) {
-      .petal { fill: #fff; }
-      .center { fill: #1a1a1a; }
+      .p { fill: #fff; }
+      .c { fill: #1a1a1a; }
     }
   </style>
-  <!-- Each petal starts 8 units from center so petals are clearly separate -->
   <g transform="translate(50,50)">
-    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(0)"/>
-    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(72)"/>
-    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(144)"/>
-    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(216)"/>
-    <path class="petal" d="M-4,-8 C-18,-12 -20,-28 0,-40 C20,-28 18,-12 4,-8Z" transform="rotate(288)"/>
-    <!-- Center dot covers the petal bases and provides contrast -->
-    <circle class="center" r="10"/>
+    <!-- Petals: narrow at base, broad and rounded at tip — hellebore shaped -->
+    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(0)"/>
+    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(72)"/>
+    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(144)"/>
+    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(216)"/>
+    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(288)"/>
+    <!-- Small center dot -->
+    <circle class="c" r="8"/>
   </g>
 </svg>
