@@ -21,6 +21,6 @@ heroImage: "/NTI1.jpg"
 
 ![NTIimage](/NTI_ROCKY2.JPG)
 
-![NTIimage](/NTI_ROCKY3.JPG)
+![NTIimage](/NTI_ROCKY3.jpg)
 
-![NTIimage](/NTI_ROCKY4.JPG)
+![NTIimage](/NTI_ROCKY4.jpg)
