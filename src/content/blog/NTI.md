@@ -13,4 +13,14 @@ heroImage: "/NTI1.jpg"
 
   Brad and Janet encounter Riff Raff in a bodies-in-space production of the Rocky Horror Picture Show.
 
-![NTIimage](/NTI_FAN.jpg)
+![NTIimage](/NTI_FAN.JPG)
+
+  The Fan Dance, choreographed by Oceana Hangret.
+
+![NTIimage](/NTI_LAMP.JPG)
+
+![NTIimage](/NTI_ROCKY2.JPG)
+
+![NTIimage](/NTI_ROCKY3.JPG)
+
+![NTIimage](/NTI_ROCKY4.JPG)
