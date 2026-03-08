@@ -17,7 +17,16 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+				width: 100%;
+				max-width: 1400px;
+			}
+			.intro-heading {
+				margin-bottom: 0.5rem;
+			}
+			.intro {
+				margin-top: 0;
+				margin-bottom: 2rem;
+				color: #c8b8b7;
 			}
 			ul {
 				display: flex;
@@ -54,12 +63,12 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.title {
 				margin: 0;
-				color: rgb(var(--black));
+				color: #f0e8e7;
 				line-height: 1;
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: #c8b8b7;
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -89,6 +98,8 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
+				<h2 class="intro-heading">Oh hey! You found my page!</h2>
+				<p class="intro">I'm a lighting designer and technical director working across New England. Here's some of what I've been working on, just click on an image to view more from that project. My social links are in the top right. Welcome!</p>
 				<ul>
 					{
 						posts.map((post) => (

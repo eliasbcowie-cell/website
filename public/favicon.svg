@@ -8,13 +8,12 @@
     }
   </style>
   <g transform="translate(50,50)">
-    <!-- Petals: narrow at base, broad and rounded at tip — hellebore shaped -->
-    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(0)"/>
-    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(72)"/>
-    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(144)"/>
-    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(216)"/>
-    <path class="p" d="M-3,-8 C-10,-13 -14,-24 -10,-32 C-5,-38 5,-38 10,-32 C14,-24 10,-13 3,-8Z" transform="rotate(288)"/>
-    <!-- Small center dot -->
-    <circle class="c" r="8"/>
+    <!-- 5 isolated petal ovals, each clearly separated from the others -->
+    <ellipse class="p" rx="9" ry="17" transform="rotate(0) translate(0,-27)"/>
+    <ellipse class="p" rx="9" ry="17" transform="rotate(72) translate(0,-27)"/>
+    <ellipse class="p" rx="9" ry="17" transform="rotate(144) translate(0,-27)"/>
+    <ellipse class="p" rx="9" ry="17" transform="rotate(216) translate(0,-27)"/>
+    <ellipse class="p" rx="9" ry="17" transform="rotate(288) translate(0,-27)"/>
+    <circle class="c" r="7"/>
   </g>
 </svg>

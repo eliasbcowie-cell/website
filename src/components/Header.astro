@@ -11,6 +11,12 @@ import { SITE_TITLE } from '../consts';
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="social-links">
+			<a href="mailto:eliasbcowie@gmail.com">
+				<span class="sr-only">Email Eli</span>
+				<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32">
+					<path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+				</svg>
+			</a>
 			<a href="https://www.linkedin.com/in/elias-cowie-7209652bb" target="_blank">
 				<span class="sr-only">LinkedIn</span>
 				<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32"
@@ -34,8 +40,12 @@ import { SITE_TITLE } from '../consts';
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 40%);
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		backdrop-filter: blur(6px);
 	}
 	h2 {
 		margin: 0;
@@ -53,7 +63,7 @@ import { SITE_TITLE } from '../consts';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--black);
+		color: #f0e8e7;
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}

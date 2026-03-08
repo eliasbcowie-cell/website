@@ -5,8 +5,8 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #5d2826;
+	--accent-dark: #3a1817;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -35,11 +35,25 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background:
+		/* primary colour blooms — enlarged for softer falloff */
+		radial-gradient(ellipse 80% 55% at 12% 8%,  rgba(165, 62, 18, 0.6)  0%, transparent 100%),
+		radial-gradient(ellipse 62% 72% at 85% 5%,  rgba(95, 18, 68, 0.55)  0%, transparent 100%),
+		radial-gradient(ellipse 68% 50% at 42% 42%, rgba(120, 38, 22, 0.5)  0%, transparent 100%),
+		radial-gradient(ellipse 58% 65% at 72% 72%, rgba(72, 16, 52, 0.5)   0%, transparent 100%),
+		radial-gradient(ellipse 60% 55% at 6%  82%, rgba(148, 62, 12, 0.45) 0%, transparent 100%),
+		radial-gradient(ellipse 50% 62% at 90% 55%, rgba(58, 12, 42, 0.4)   0%, transparent 100%),
+		/* bridging layers at the fastest-shifting zones */
+		radial-gradient(ellipse 90% 38% at 50% 4%,  rgba(110, 35, 48, 0.3)  0%, transparent 100%),
+		radial-gradient(ellipse 60% 58% at 55% 60%, rgba(88, 22, 40, 0.28)  0%, transparent 100%),
+		radial-gradient(ellipse 70% 50% at 28% 65%, rgba(100, 30, 28, 0.25) 0%, transparent 100%),
+		radial-gradient(ellipse 55% 55% at 80% 35%, rgba(65, 14, 48, 0.25)  0%, transparent 100%),
+		radial-gradient(ellipse at 50% 50%, transparent 30%, #000 100%),
+		#66302c;
+	background-attachment: fixed;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: #c8b8b7;
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -56,7 +70,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: #f0e8e7;
 	line-height: 1.2;
 }
 h1 {
@@ -79,10 +93,10 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+	color: #c47a77;
 }
 a:hover {
-	color: var(--accent);
+	color: #e8a8a5;
 }
 p {
 	margin-bottom: 1em;
