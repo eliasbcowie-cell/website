@@ -45,7 +45,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.prose p:not(:has(> img)),
 			.prose .title,
 			.prose hr,
-			.prose h1, .prose h2, .prose h3 {
+			.prose h1, .prose h2, .prose h3,
+			.prose ul, .prose ol {
 				column-span: all;
 			}
 			.prose p:has(> img:only-child) {

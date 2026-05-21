@@ -7,7 +7,7 @@ heroImage: "/DF26_8.jpg"
 
 Just some images from Dancefest 2026 at Wheaton College. Shot by Joe Sato Murphy, many thanks. 
 
-**Press:** [Dancefest Unleashes Student Talent — Wheaton Wire](https://wheatonwire.com/dancefest-unleashes-student-talent-first-two-performances-completely-sell-out/)
+**Press:** [Dancefest Unleashes Student Talent - Wheaton Wire](https://wheatonwire.com/dancefest-unleashes-student-talent-first-two-performances-completely-sell-out/)
 
 ![Dancers](/DF26_1.jpg)
 
