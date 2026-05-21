@@ -36,9 +36,8 @@ const posts = (await getCollection('blog')).sort(
 			ul {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
-				grid-auto-rows: 10px;
-				column-gap: 2rem;
-				row-gap: 0;
+				gap: 2rem;
+				align-items: start;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
@@ -127,26 +126,6 @@ const posts = (await getCollection('blog')).sort(
 			</section>
 		</main>
 		<Footer />
-
-	<script>
-		function initMasonry() {
-			const grid = document.querySelector('ul') as HTMLElement;
-			if (!grid) return;
-			const rowSize = 10;
-			const gap = 20;
-			const items = grid.querySelectorAll('li:not(:first-child)');
-			items.forEach((item) => {
-				const el = item as HTMLElement;
-				el.style.gridRowEnd = '';
-				const height = el.getBoundingClientRect().height;
-				const span = Math.ceil((height + gap) / (rowSize + 0));
-				el.style.gridRowEnd = `span ${span}`;
-			});
-		}
-
-		window.addEventListener('load', initMasonry);
-		window.addEventListener('resize', initMasonry);
-	</script>
 
 	</body>
 </html>
