@@ -20,7 +20,6 @@
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
-		"sharp": "^0.33.5",
 		"wrangler": "4.56.0"
 	},
 	"private": true,
