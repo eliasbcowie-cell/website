@@ -120,6 +120,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
 
 		document.querySelectorAll('.prose img').forEach((img) => {
+			(img as HTMLImageElement).loading = 'lazy';
 			(img as HTMLElement).addEventListener('click', () => {
 				lightboxImg.src = (img as HTMLImageElement).src;
 				lightbox.style.display = 'flex';

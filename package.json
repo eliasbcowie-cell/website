@@ -20,12 +20,13 @@
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
+		"sharp": "^0.33.5",
 		"wrangler": "4.56.0"
 	},
 	"private": true,
 	"scripts": {
 		"astro": "astro",
-		"build": "astro build",
+		"build": "node scripts/compress-images.mjs && astro build",
 		"cf-typegen": "wrangler types",
 		"check": "astro build && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
