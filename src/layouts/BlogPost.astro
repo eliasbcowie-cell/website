@@ -35,13 +35,31 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				padding: 1em;
 				color: #c8b8b7;
 			}
-			.prose img {
-				max-height: 600px;
-				width: auto;
-				max-width: 100%;
+			.prose {
+				columns: 2;
+				column-gap: 0.75rem;
+			}
+			.prose p:not(:has(> img)),
+			.prose .title,
+			.prose hr,
+			.prose h1, .prose h2, .prose h3 {
+				column-span: all;
+			}
+			.prose p:has(> img:only-child) {
+				break-inside: avoid;
+				margin: 0 0 0.75rem 0;
+			}
+			.prose p:has(> img:only-child) img {
+				width: 100%;
+				height: auto;
 				display: block;
-				margin: 1em auto;
 				border-radius: 8px;
+				cursor: zoom-in;
+			}
+			@media (max-width: 720px) {
+				.prose {
+					columns: 1;
+				}
 			}
 			.title {
 				margin-bottom: 1em;
@@ -89,5 +107,35 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</article>
 		</main>
 		<Footer />
+
+	<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:1000; cursor:zoom-out; align-items:center; justify-content:center;">
+		<img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; border-radius:8px; object-fit:contain;" />
+	</div>
+
+	<script>
+		const lightbox = document.getElementById('lightbox') as HTMLElement;
+		const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+
+		document.querySelectorAll('.prose img').forEach((img) => {
+			(img as HTMLElement).addEventListener('click', () => {
+				lightboxImg.src = (img as HTMLImageElement).src;
+				lightbox.style.display = 'flex';
+				document.body.style.overflow = 'hidden';
+			});
+		});
+
+		lightbox.addEventListener('click', () => {
+			lightbox.style.display = 'none';
+			document.body.style.overflow = '';
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				lightbox.style.display = 'none';
+				document.body.style.overflow = '';
+			}
+		});
+	</script>
+
 	</body>
 </html>
