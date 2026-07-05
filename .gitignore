@@ -200,3 +200,7 @@ dist
 
 ### Astro ###
 .astro/
+
+### Raw camera video — keep out of git; embed compressed .mp4 instead ###
+*.MOV
+*.mov
