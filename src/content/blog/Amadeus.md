@@ -2,7 +2,7 @@
 title: "Amadeus"
 description: "Technical Director for Amadeus"
 pubDate: "Mar 26 2026"
-heroImage: "/AMADEUS_POSTER.png"
+heroImage: "/AMADEUS_5x8.jpg"
 ---
 
 At Wheaton College, MA, I served as Technical Director for Kresge Theatre Company's Spring 2026 production of Amadeus, staged in the Experimental Theatre. Working with a production team of 9 and a cast of 13 (all students) taught me a lot about organization and cooperative work. I designed the stage in Vectorworks Spotlight, and sent the plans to my lighting and sound designers so they could begin working months before their production deadlines. After finalizing the plan with our director, John O'Meara ’26, I constructed the set over Spring Break, then flew to LA for the USITT annual conference in Long Beach. Coming back, I hung all the softgoods and the light plot, painted the set in weathered/concrete scumble, and assisted in focusing/programming during the tech week, as well as overseeing the safe operation of the moving set pieces.
