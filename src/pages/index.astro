@@ -33,46 +33,53 @@ const posts = (await getCollection('blog')).sort(
 				margin-bottom: 2rem;
 				color: #c8b8b7;
 			}
+			/* Justified gallery:
+			   - Flex rows that fill the full width (no right-edge gaps).
+			   - Each image is sized by its own aspect ratio, so within a
+			     row all images share the same height. A portrait next to a
+			     landscape ends up narrower-but-taller, giving each tile a
+			     visually similar area instead of a huge landscape next to
+			     a tiny portrait. */
 			ul {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 2rem;
-				align-items: start;
+				--row-h: 280px;
+				--gap: 1rem;
+				display: flex;
+				flex-wrap: wrap;
+				gap: var(--gap);
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 			}
 			ul li {
+				--ar: 1.5; /* fallback until JS reads naturalWidth/Height */
+				flex-grow: var(--ar);
+				flex-basis: calc(var(--ar) * var(--row-h));
 				min-width: 0;
+				display: flex;
+				flex-direction: column;
 			}
 			ul li * {
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li:first-child {
-				grid-column: 1 / -1;
-				text-align: center;
-				margin-bottom: 1rem;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
+			ul li a {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
 			}
 			ul li img {
 				width: 100%;
 				height: auto;
+				aspect-ratio: var(--ar);
+				object-fit: cover;
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
-			}
-			ul li a {
 				display: block;
 			}
 			.title {
 				margin: 0;
 				color: #f0e8e7;
-				line-height: 1;
+				line-height: 1.1;
 			}
 			.date {
 				margin: 0;
@@ -87,17 +94,14 @@ const posts = (await getCollection('blog')).sort(
 			}
 			@media (max-width: 720px) {
 				ul {
-					gap: 0.5em;
+					--row-h: 220px;
+					gap: 0.75rem;
 				}
 				ul li {
-					width: 100%;
+					/* On narrow screens, one image per row so nothing
+					   gets squeezed too small. */
+					flex-basis: 100%;
 					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
 				}
 			}
 		</style>
@@ -108,12 +112,12 @@ const posts = (await getCollection('blog')).sort(
 			<section>
 				<h2 class="intro-heading">Elias Cowie - Lighting Designer & Technical Director</h2>
 				<p class="intro">I'm a lighting designer and technical director based in New England. I recently graduated cum laude from Wheaton College with a BA in Theatre & Dance and Economics, earning the Lillian Hellman Prize in Theatre and Dance. Over the past four years I've worked across lighting, sound, and scenic - both as a designer and TD - while building a close network of collaborators throughout New England and New York. Explore my work below, or reach out directly.</p>
-				<ul>
+				<ul id="post-grid">
 					{
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && <img width={720} height={360} src={post.data.heroImage} alt="" />}
+									{post.data.heroImage && <img src={post.data.heroImage} alt="" loading="lazy" />}
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
@@ -127,5 +131,27 @@ const posts = (await getCollection('blog')).sort(
 		</main>
 		<Footer />
 
+		<script is:inline>
+			// After each hero image loads, set its real aspect ratio on the
+			// surrounding <li>. The flex-basis + flex-grow formulas in the
+			// stylesheet turn that into a justified-row layout where every
+			// image in a row shares the same height.
+			(function () {
+				const items = document.querySelectorAll('#post-grid li');
+				items.forEach((li) => {
+					const img = li.querySelector('img');
+					if (!img) return;
+					const apply = () => {
+						const w = img.naturalWidth;
+						const h = img.naturalHeight;
+						if (!w || !h) return;
+						const ar = w / h;
+						li.style.setProperty('--ar', ar.toFixed(4));
+					};
+					if (img.complete && img.naturalWidth) apply();
+					else img.addEventListener('load', apply, { once: true });
+				});
+			})();
+		</script>
 	</body>
 </html>
