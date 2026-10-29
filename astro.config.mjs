@@ -7,8 +7,13 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://example.com",
+	site: "https://creativeelicowie.com",
 	integrations: [mdx(), sitemap()],
+	// /blog/* is served from the homepage; redirect the index to /
+	// so there's no stub route and the sitemap stays clean.
+	redirects: {
+		"/blog": "/",
+	},
 	adapter: cloudflare({
 		platformProxy: {
 			enabled: true,

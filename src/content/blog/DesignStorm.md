@@ -3,6 +3,7 @@ title: "Design Storm"
 description: "Scenic design for Ebony at the American College Theatre Festival, Region 1"
 pubDate: "Jan 27 2026"
 heroImage: "/ebony/slide1.png"
+tags: ["Scenic"]
 ---
 
 At the American College Theatre Festival (Region 1) in Albany, where I also presented Everybody, I spent three days on Design Storm, a collaborative design challenge led by Scott Osborne. I took on scenic design for *Ebony*, a play by Mckensi Scy Pascall, working alongside student designers in lights, props, and sound. I started from the script with a concept board, then drafted a top-down ground plan and sections, full-stage renderings, and a perspective sketch. Click through the slides below to follow the design.

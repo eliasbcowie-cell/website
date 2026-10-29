@@ -3,6 +3,7 @@ title: "Festival 56"
 description: "Assistant TD and Sound Designer, Summer 2024"
 pubDate: "Jun 01 2024"
 heroImage: "/F56_1.jpg"
+tags: ["Technical Direction"]
 ---
 
 In the summer of 2024, I joined [Festival 56](https://festival56.com) in Princeton, IL as Assistant Technical Director and Sound Designer - my first professional theatre contract.

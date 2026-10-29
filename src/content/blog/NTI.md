@@ -3,6 +3,7 @@ title: "NTI"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "December 01 2024"
 heroImage: "/NTI1.jpg"
+tags: ["Photography"]
 ---
 
 

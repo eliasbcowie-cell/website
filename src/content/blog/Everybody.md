@@ -3,6 +3,7 @@ title: "Everybody"
 description: "Images from Everybody"
 pubDate: "Mar 01 2025"
 heroImage: "/EV_DOWNSPOT.jpg"
+tags: ["Technical Direction", "Scenic"]
 ---
 
 At Wheaton College, MA, I serve as Technical Director for Kresge Theatre Company. We produced Everybody in Spring 2025, in the Kresge Experimental Theatre. Images Below.

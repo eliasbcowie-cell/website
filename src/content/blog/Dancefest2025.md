@@ -3,6 +3,7 @@ title: "Dancefest2025"
 description: "Lorem ipsum dolor sit amet"
 pubDate: "Feb 14 2025"
 heroImage: "/DF25_TRYBE.png"
+tags: ["Lighting"]
 ---
 
 Student-driven dance show featuring 29 pieces and 5 student dance groups.
