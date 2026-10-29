@@ -9,6 +9,7 @@ import { SITE_TITLE } from '../consts';
 		<div class="internal-links">
 			<HeaderLink href="/">Projects</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
+			<a class="resume-link" href="/EBC_TechRes.pdf" download>Resume</a>
 		</div>
 		<div class="social-links">
 			<a href="mailto:eliasbcowie@gmail.com">
@@ -74,6 +75,20 @@ import { SITE_TITLE } from '../consts';
 	.social-links,
 	.social-links a {
 		display: flex;
+	}
+	.resume-link {
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 999px;
+		padding: 0.35em 0.9em !important;
+		margin-left: 0.4em;
+		font-size: 0.9em;
+		align-self: center;
+		transition: 0.2s ease;
+	}
+	.resume-link:hover {
+		background: rgb(var(--accent));
+		border-color: rgb(var(--accent));
+		color: #fff;
 	}
 	@media (max-width: 720px) {
 		.social-links {

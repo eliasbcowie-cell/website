@@ -99,17 +99,20 @@ const posts = (await getCollection('blog')).sort(
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul.grid li a {
+			ul.grid li .card-image {
+				display: block;
+			}
+			ul.grid li .card-body {
 				display: flex;
 				flex-direction: column;
-				height: 100%;
+				flex: 1;
 			}
 			ul.grid li img {
 				width: 100%;
 				height: auto;
 				aspect-ratio: var(--ar);
 				object-fit: cover;
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.4rem;
 				border-radius: 12px;
 				display: block;
 			}
@@ -129,33 +132,43 @@ const posts = (await getCollection('blog')).sort(
 				font-size: 0.9em;
 				line-height: 1.3;
 			}
+			/* Tag chips sit between the image and the title.
+			   The ul is inline-flex so it only takes the width of its chips,
+			   not the full width of the card. */
 			.tags {
-				margin: 0;
+				margin: 0 0 0.3rem 0;
 				padding: 0;
 				list-style: none;
 				display: flex;
 				flex-wrap: wrap;
-				gap: 0.35rem;
+				gap: 0.3rem;
+				align-self: flex-start;
 			}
 			.tags li {
-				color: #f0e8e7;
-				font-size: 0.75em;
+				font-size: 0.65em;
 				letter-spacing: 0.01em;
-				padding: 0.15rem 0.55rem;
 				border-radius: 999px;
 				background: rgba(255, 255, 255, 0.08);
 				border: 1px solid rgba(255, 255, 255, 0.12);
+				line-height: 1;
 			}
+			.tags li a {
+				color: #f0e8e7;
+				text-decoration: none;
+				display: inline-block;
+				padding: 0.2rem 0.5rem;
+			}
+			.tags li:hover { filter: brightness(1.3); }
 			.tags li[data-tag="Lighting"]            { background: rgba(201, 148, 31, 0.28);  border-color: rgba(201, 148, 31, 0.55); }
 			.tags li[data-tag="Technical Direction"] { background: rgba(58, 148, 170, 0.28);  border-color: rgba(58, 148, 170, 0.55); }
 			.tags li[data-tag="Scenic"]              { background: rgba(94, 158, 76, 0.28);   border-color: rgba(94, 158, 76, 0.55); }
 			.tags li[data-tag="Photography"]         { background: rgba(154, 102, 196, 0.28); border-color: rgba(154, 102, 196, 0.55); }
-			ul.grid li a:hover h4,
-			ul.grid li a:hover .date,
-			ul.grid li a:hover .desc {
+			ul.grid li .card-body:hover h4,
+			ul.grid li .card-body:hover .date,
+			ul.grid li .card-body:hover .desc {
 				color: rgb(var(--accent));
 			}
-			ul.grid a:hover img {
+			ul.grid .card-image:hover img {
 				box-shadow: var(--box-shadow);
 			}
 			@media (max-width: 720px) {
@@ -189,23 +202,27 @@ const posts = (await getCollection('blog')).sort(
 					{
 						posts.map((post) => (
 							<li data-tags={(post.data.tags ?? []).join('|')}>
-								<a href={`/blog/${post.id}/`}>
+								<a class="card-image" href={`/blog/${post.id}/`}>
 									{post.data.heroImage && (
 										<img src={post.data.heroImage} alt={post.data.title} loading="lazy" decoding="async" />
 									)}
+								</a>
+								{post.data.tags && post.data.tags.length > 0 && (
+									<ul class="tags">
+										{post.data.tags.map((t) => (
+											<li data-tag={t}>
+												<a href={`/tag/${t.toLowerCase().replace(/\s+/g, '-')}/`}>#{t.replace(/\s+/g, '')}</a>
+											</li>
+										))}
+									</ul>
+								)}
+								<a class="card-body" href={`/blog/${post.id}/`}>
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
 									{post.data.description && (
 										<p class="desc">{post.data.description}</p>
-									)}
-									{post.data.tags && post.data.tags.length > 0 && (
-										<ul class="tags">
-											{post.data.tags.map((t) => (
-												<li data-tag={t}>#{t.replace(/\s+/g, '')}</li>
-											))}
-										</ul>
 									)}
 								</a>
 							</li>
@@ -236,19 +253,40 @@ const posts = (await getCollection('blog')).sort(
 				});
 			})();
 
-			// 2. Tag filter chips.
+			// 2. Multi-select tag filter chips (OR logic).
+			//    - "All" clears every selection.
+			//    - Clicking any tag chip toggles it; a post shows if it
+			//      matches any of the active tags.
+			//    - When no tag chips are active, "All" is active and
+			//      every post shows.
 			(function () {
-				const chips = document.querySelectorAll('#filter-row .filter-chip');
-				const items = document.querySelectorAll('#post-grid li');
-				chips.forEach((chip) => {
+				const chips = Array.from(document.querySelectorAll('#filter-row .filter-chip'));
+				const items = Array.from(document.querySelectorAll('#post-grid li'));
+				const allChip = chips.find((c) => c.getAttribute('data-tag') === '');
+				const tagChips = chips.filter((c) => c.getAttribute('data-tag'));
+
+				function refresh() {
+					const active = tagChips
+						.filter((c) => c.classList.contains('active'))
+						.map((c) => c.getAttribute('data-tag'));
+					if (allChip) allChip.classList.toggle('active', active.length === 0);
+					items.forEach((li) => {
+						const tags = (li.getAttribute('data-tags') || '').split('|').filter(Boolean);
+						const show = active.length === 0 || tags.some((t) => active.includes(t));
+						li.hidden = !show;
+					});
+				}
+
+				if (allChip) {
+					allChip.addEventListener('click', () => {
+						tagChips.forEach((c) => c.classList.remove('active'));
+						refresh();
+					});
+				}
+				tagChips.forEach((chip) => {
 					chip.addEventListener('click', () => {
-						const tag = chip.getAttribute('data-tag') || '';
-						chips.forEach((c) => c.classList.toggle('active', c === chip));
-						items.forEach((li) => {
-							const tags = (li.getAttribute('data-tags') || '').split('|').filter(Boolean);
-							const show = !tag || tags.includes(tag);
-							li.hidden = !show;
-						});
+						chip.classList.toggle('active');
+						refresh();
 					});
 				});
 			})();

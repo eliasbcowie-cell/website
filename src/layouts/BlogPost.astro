@@ -76,13 +76,18 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 				justify-content: center;
 			}
 			.post-tags li {
-				color: #f0e8e7;
 				font-size: 0.9em;
 				background: rgba(255, 255, 255, 0.05);
 				border: 1px solid rgba(255, 255, 255, 0.1);
-				padding: 0.2rem 0.7rem;
 				border-radius: 999px;
 			}
+			.post-tags li a {
+				color: #f0e8e7;
+				text-decoration: none;
+				display: inline-block;
+				padding: 0.2rem 0.7rem;
+			}
+			.post-tags li:hover { filter: brightness(1.3); }
 			.post-tags li[data-tag="Lighting"]            { background: rgba(201, 148, 31, 0.28);  border-color: rgba(201, 148, 31, 0.55); }
 			.post-tags li[data-tag="Technical Direction"] { background: rgba(58, 148, 170, 0.28);  border-color: rgba(58, 148, 170, 0.55); }
 			.post-tags li[data-tag="Scenic"]              { background: rgba(94, 158, 76, 0.28);   border-color: rgba(94, 158, 76, 0.55); }
@@ -187,7 +192,9 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.prop
 						{tags && tags.length > 0 && (
 							<ul class="post-tags">
 								{tags.map((t: string) => (
-									<li data-tag={t}>#{t.replace(/\s+/g, '')}</li>
+									<li data-tag={t}>
+										<a href={`/tag/${t.toLowerCase().replace(/\s+/g, '-')}/`}>#{t.replace(/\s+/g, '')}</a>
+									</li>
 								))}
 							</ul>
 						)}

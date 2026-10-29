@@ -1,6 +1,6 @@
 ---
 title: "NTI"
-description: "Lorem ipsum dolor sit amet"
+description: "Fall semester at the Eugene O'Neill Theatre Center."
 pubDate: "December 01 2024"
 heroImage: "/NTI1.jpg"
 tags: ["Photography"]

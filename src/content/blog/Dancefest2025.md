@@ -1,6 +1,6 @@
 ---
 title: "Dancefest2025"
-description: "Lorem ipsum dolor sit amet"
+description: "Lighting for Wheaton College's student-driven dance showcase."
 pubDate: "Feb 14 2025"
 heroImage: "/DF25_TRYBE.png"
 tags: ["Lighting"]
